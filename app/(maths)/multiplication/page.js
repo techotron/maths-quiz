@@ -91,8 +91,8 @@ export default function Page() {
                 <Card>
                     <CardBody>
                         {answerIsCorrect ?
-                            <Alert className="bg-green-500">"Correct!"</Alert> :
-                            <Alert className="bg-red-500">"Incorrect!"</Alert>
+                            <Alert className="bg-green-500">Correct!</Alert> :
+                            <Alert className="bg-red-500">Incorrect!</Alert>
                         }
                     </CardBody>
                 </Card>
