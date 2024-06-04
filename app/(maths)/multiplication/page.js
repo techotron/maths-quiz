@@ -12,6 +12,8 @@ export default function Page() {
     const [stopTimer, setStopTimer] = useState(false);
     const [isStarted, setIsStarted] = useState(false);
     const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
+    const [score, setScore] = useState(0);
+    const [totalAnswered, setTotalAnswered] = useState(0);
 
 
     const newQuestion = () => {
@@ -29,6 +31,10 @@ export default function Page() {
 
     const submitAnswer = () => {
         setStopTimer(true)
+        if (parseInt(answer) === correctAnswer) {
+            setScore(score + 1)
+        }
+        setTotalAnswered(totalAnswered + 1)
         setAnswerIsCorrect(parseInt(answer) === correctAnswer)
     }
 
@@ -52,6 +58,9 @@ export default function Page() {
                 </CardBody>
                 <CardBody>
                     <Progress value={timeLeft / 5} size="lg" />
+                </CardBody>
+                <CardBody>
+                    <Typography className="text-black" variant="h3">Score: {score} / {totalAnswered}</Typography>
                 </CardBody>
                 <CardBody>
                     <div className="space-y-4">
